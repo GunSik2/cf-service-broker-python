@@ -1,0 +1,172 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ServiceBroker",
+		"_postman_id": "c3b502ee-e16d-1df0-8209-98a5579c0492",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/v2/catalog",
+			"request": {
+				"url": "http://localhost:8080/v2/catalog",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Broker-Api-Version",
+						"value": "2.5",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic dXNlcjpwYXNz",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "password",
+							"value": "admin1",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "deprovisioning",
+			"request": {
+				"url": "http://localhost:8080/v2/service_instances/cc_instance_id",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Broker-Api-Version",
+						"value": "2.5",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic dXNlcjpwYXNz",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "provisioning",
+			"request": {
+				"url": "http://localhost:8080/v2/service_instances/cc_instance_id",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Broker-Api-Version",
+						"value": "2.5",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic dXNlcjpwYXNz",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"service_id\":        \"echo_service\",\r\n  \"plan_id\":           \"small_0001\",\r\n  \"organization_guid\": \"HP\",\r\n  \"space_guid\":        \"IT\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "bind",
+			"request": {
+				"url": "http://localhost:8080/v2/service_instances/cc_instance_id/service_bindings/app_id",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Broker-Api-Version",
+						"value": "2.5",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic dXNlcjpwYXNz",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"service_id\":        \"echo_service\",\r\n  \"plan_id\":           \"small_0001\",\r\n  \"app_guid\":          \"otherappid\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "unbind",
+			"request": {
+				"url": "http://localhost:8080/v2/service_instances/cc_instance_id/service_bindings/app_id",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Broker-Api-Version",
+						"value": "2.5",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic dXNlcjpwYXNz",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "password",
+							"value": "admin1",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
